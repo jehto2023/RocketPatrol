@@ -77,16 +77,17 @@ class Play extends Phaser.Scene {
 
     update() {
         // check key input for restart / menu
+
+        if(Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.scene.restart();
+        }
+
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
 
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene");
-        }
-
-        if(Phaser.Input.Keyboard.JustDown(keyR)) {
-            this.scene.restart();
         }
 
         this.starfield.tilePositionX -= 4;  // update tile sprite
